@@ -32,7 +32,7 @@ $( document ).ready(function(){
 		})
 		.done(function( data ){
 			var parsedData = $.parseJSON( data );
-			$( 'title' ).text( "Manoj M Bharadwaj | Blog" );
+			$( 'title' ).text( "Manoj M Bharadwaj | ibeingmj Blog" );
 			$( '#mainDiv' ).html("<div id='articles'>");
 			for( id in parsedData ){
 				$( "#articles" ).prepend("<section class='post'><header class='post-header'><h2 class='post-title'><a onclick='readArticle("+ id +");'>"+ parsedData[id]['title'] +"</a></h2><p class='post-meta'>"+ parsedData[id]['postedOn'] +"</p></header><div class='post-description'><p>"+ parsedData[id]['article'] +"</p></div></section>");
