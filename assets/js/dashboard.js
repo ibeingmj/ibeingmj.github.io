@@ -24,7 +24,7 @@ $( document ).ready(function(){
 		alert(id);
 		$.ajax({
 			type : "POST",
-			url  : "http://192.168.90.12/test/deleteArticle.php",
+			url  : "http://craftmanoj.host22.com/deleteArticle.php",
 			data : deleteArticle
 		})
 		.done(function(data){
@@ -46,7 +46,7 @@ $( document ).ready(function(){
 
 	$.ajax({
 		type : "GET",
-		url  : "http://192.168.90.12/test/getAllArticles.php",
+		url  : "http://craftmanoj.host22.com/getAllArticles.php",
 		data : formData
 	})
 	.done(function( data ){
@@ -71,7 +71,7 @@ $( document ).ready(function(){
 
 		$.ajax({
 			type : "POST",
-			url  : "http://192.168.90.12/test/publishBlog.php",
+			url  : "http://craftmanoj.host22.com/publishBlog.php",
 			data : formData
 		})
 		.done(function(data){

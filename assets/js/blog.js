@@ -12,7 +12,7 @@ $( document ).ready(function(){
 				
 		$.ajax({
 			type : "POST",
-			url  : "http://192.168.90.12/test/blog.php",
+			url  : "http://craftmanoj.host22.com/blog.php",
 			data : newPostData
 		})
 		.done(function( data ){

@@ -12,7 +12,7 @@ $( document ).ready(function(){
 
 		$.ajax({
 			type : "POST",
-			url  : "http://192.168.90.12/test/authenticate.php",
+			url  : "http://craftmanoj.host22.com/authenticate.php",
 			data : formData
 		})
 		.done(function(data){
