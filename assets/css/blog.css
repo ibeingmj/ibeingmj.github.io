@@ -206,3 +206,6 @@ h3 {
     background-color: #eee;
     padding: 2%;
 }
+.active a{
+    border: 2px solid #000;
+}
