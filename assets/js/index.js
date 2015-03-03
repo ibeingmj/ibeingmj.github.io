@@ -7,6 +7,7 @@ $( document ).ready(function(){
 	*/
 
 	readArticle = function( articleId ){
+		$( '#mainDiv' ).html("<div id='loader'><img src='assets/img/loader.gif' alt=''>");
 		var articleInfo = {
 			'articleId' : articleId
 		};
@@ -18,7 +19,8 @@ $( document ).ready(function(){
 		.done(function( data ){
 			var parsedArticle = $.parseJSON( data );
 			$( 'title' ).text( parsedArticle['title'] );
-			$( '#mainDiv' ).html("<section class='post'><header class='post-header'><button class='pure-button' onclick='getAllArticles();'> Back </button><h2 class='post-title'>"+ parsedArticle['title'] +"</h2><p class='post-meta'>"+ parsedArticle['postedOn'] +"</p></header><div class='post-description'><p>"+ parsedArticle['article'] +"</p></div></section>");
+			$( '#mainDiv' ).append("</div><section class='post'><header class='post-header'><button class='pure-button' onclick='getAllArticles();'> Back </button><h2 class='post-title'>"+ parsedArticle['title'] +"</h2><p class='post-meta'>"+ parsedArticle['postedOn'] +"</p></header><div class='post-description'><p>"+ parsedArticle['article'] +"</p></div></section>");
+			$( '#loader' ).fadeOut(400, function(){ $( this ).remove(); });
 		})
 		.fail(function(){
 			alert('no');
@@ -26,6 +28,7 @@ $( document ).ready(function(){
 	}
 
 	getAllArticles = function(){
+		$( '#mainDiv' ).html("<div id='articles'><div id='loader'><img src='assets/img/loader.gif' alt=''></div>");
 		$.ajax({
 			type : "GET",
 			url  : "http://craftmanoj.host22.com/getAllArticles.php"
@@ -33,11 +36,11 @@ $( document ).ready(function(){
 		.done(function( data ){
 			var parsedData = $.parseJSON( data );
 			$( 'title' ).text( "Manoj M Bharadwaj | ibeingmj Blog" );
-			$( '#mainDiv' ).html("<div id='articles'>");
 			for( id in parsedData ){
 				$( "#articles" ).prepend("<section class='post'><header class='post-header'><h2 class='post-title'><a onclick='readArticle("+ id +");'>"+ parsedData[id]['title'] +"</a></h2><p class='post-meta'>"+ parsedData[id]['postedOn'] +"</p></header><div class='post-description'><p>"+ parsedData[id]['article'] +"</p></div></section>");
 			}
 			$( '#mainDiv' ).append("</div>");
+			$( '#loader' ).fadeOut(400, function(){ $( this ).remove(); });
 		})
 		.fail(function(){
 
