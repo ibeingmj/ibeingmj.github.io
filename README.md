@@ -1,1 +1,1 @@
-My Blog: ibeingmj.github.io
+My Blog: <a href="ibeingmj.github.io">ibeingmj</a>
