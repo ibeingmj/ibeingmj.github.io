@@ -23,7 +23,8 @@ $( document ).ready(function(){
 			$( '#loader' ).fadeOut(400, function(){ $( this ).remove(); });
 		})
 		.fail(function(){
-			alert('no');
+			alert('Something went wrong, redirecting to home');
+			getAllArticles();
 		});
 	}
 
