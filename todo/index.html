@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/materialize.css">
+</head>
+<body>
+<!-- <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">Logo</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="components.html">Components</a></li>
+        <li><a href="javascript.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="components.html">Components</a></li>
+        <li><a href="javascript.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+      </ul>
+    </div>
+  </nav> -->
+	
+	
+	<div class="row">
+		<h1 class="text-center"> <a href="http://ibeingmj.github.io/">ibeingmj</a> </h1>
+		<div class="clearfix"></div>
+		<div class="col s12 m10 offset-m1">
+			<div class="card darken-1">
+				<div class="card-content white-text">
+					<span class="card-title"> authenticate </span>
+				</div>
+				<div class="card-action">
+				<form action="" name="authenticate" autocomplete="off">
+					<div class="row">
+						<div class="input-field col s12 m10">
+							<input id="username" type="text" class="validate" autofocus>
+							<label for="username">Username</label>
+						</div>
+					</div>
+					      <div class="clearfix"></div>
+					<div class="row">
+						<div class="input-field col s12 m10">
+							<input id="password" type="password" class="validate">
+							<label for="password">Password</label>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+						<p class="col s12 m10 z-depth-5">
+							<h5 id="formError"></h5>
+						</p>
+					<div class="clearfix"></div>
+					<div class="row">
+						<button type="submit" class="waves-effect waves-light btn right-align">
+							Log In  <i class="mdi-action-trending-neutral"></i>
+						</button>
+					</div>
+					<div class="clearfix"></div>
+					<div class="row">
+						<small>
+							Don't have an account ? 
+						</small>
+						<div class="clearfix"></div>
+						<a class="waves-effect waves-teal btn-flat" href="register.html">
+							Register
+						</a>
+					</div>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/materialize.min.js"></script>
+
+<script>
+$( document ).ready(function(){
+	$('.button-collapse').sideNav({menuWidth: 240, activationWidth: 70});
+	$('.dropdown-button').dropdown({
+		inDuration: 300,
+		outDuration: 225,
+		constrain_width: false, // Does not change width of dropdown to that of the activator
+		hover: false, // Activate on click
+		alignment: 'left', // Aligns dropdown to left or right edge (works with constrain_width)
+		gutter: 0, // Spacing from edge
+		belowOrigin: false // Displays dropdown below the button
+		}
+	);
+
+	$( "form[name=authenticate]" ).submit(function(){
+		var username = $( '#username' ).val();
+		var password = $( '#password' ).val();
+
+		if( username.length <= 0 || password.length <= 0 ){
+			$( '#formError' ).text( 'Please Fill out the Form' );
+			return false;
+		} else {
+			$( '#formError' ).empty();
+			var formData = {
+				'username' : username,
+				'password' : password,
+				'authenticate' : true
+			};
+			$.ajax({
+				type : "POST",
+				url  : "http://craftmanoj.host22.com/todo/authenticate.php",
+				data : formData
+			})
+			.done(function( data ){
+				var parsedData = $.parseJSON( data );
+				if( parsedData.isLoggedIn ){
+					sessionStorage.setItem("userid", parsedData.id);
+					window.location = "home.html";
+				} else {
+					$( '#formError' ).text( 'Username/Password is wrong.' );
+				}
+			})
+			.fail(function(){
+				$( '#formError' ).text( 'Something went wrong, may be internet problem, why dont you check out once.' );
+			});
+			return false;
+		}
+
+	});
+
+});
+	
+</script>
+</body>
+</html>
