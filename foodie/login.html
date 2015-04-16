@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Foodie </title>
+	<link href="assets/css/bootstrap.css" rel="stylesheet">
+	<style>
+		body{
+			background: url(assets/img/back.png);
+			background-color: #444;
+			background: url(assets/img/pinlayer2.png),url(assets/img/pinlayer1.png),url(assets/img/back.png);    
+		}
+
+		.vertical-offset-100{
+			padding-top:40px;
+		}
+	</style>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	<a class="navbar-brand" href="index.html"> Foodie </a>
+	</div>
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<ul class="nav navbar-nav">
+			<li class=""><a href="index.html"> Home <span class="sr-only">(current)</span></a></li>
+			<li><a href="#">Link</a></li>
+		</ul>
+	</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+	<div class="row vertical-offset-100">
+		<div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Please Log In</h3>
+				</div>
+				<div class="panel-body">
+					<form accept-charset="UTF-8" role="form">
+					<fieldset>
+						<div class="form-group">
+							<input class="form-control" placeholder="Username" name="username" type="text" autofocus>
+						</div>
+						<div class="form-group">
+							<input class="form-control" placeholder="Password" name="password" type="password" value="">
+						</div>
+						<div class="checkbox">
+							<label>
+								<input name="remember" type="checkbox" value="Remember Me"> Remember Me
+							</label>
+						</div>
+						<input class="btn btn-success btn-block" type="submit" value="Login">
+					</fieldset>
+					</form>
+				</div>
+				<div class="panel-footer"> Don't have an account? <a class="btn-link" href="register.html"> Register </a> </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="assets/js/jquery-2.1.3.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/common.js"></script>
+</body>
+</html>
